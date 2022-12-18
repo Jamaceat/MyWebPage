@@ -1,0 +1,14 @@
+{
+	"project": [
+		{
+			"title": "Trading DashBoard",
+			"description": "Este proyecto fue realizado para ser las vistas de una inteligencia artificial diseñada en proyecto final con la capacidad de predecir velas japonesas, en el dashboard se puede ver una lista de resultados de predicciones, si fueron exitosas o no, tambien hay un porcentaje de precision para sus decisiones y unos graficos para visualizar el valor del EURO/DOLAR en las fechas dadas por el simulador de historicos que provee los datos.",
+			"images": []
+		},
+		{
+			"title": "Reproductor de musica",
+			"description": "Proyecto realizado para hacer una replica de las funciones de spotify ademas de permitir agregar canciones que tengas almacenada localmente para que las reproduzcas",
+			"images": []
+		}
+	]
+}
