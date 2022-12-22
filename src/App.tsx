@@ -1,8 +1,14 @@
 import React from "react"
 import "./App.css"
-
+import HeaderPortafolio from "./Components/Header/Header"
+import Intro from "./Components/Introduction/Introduction"
 function App() {
-	return <div className="App">Holaa</div>
+	return (
+		<>
+			<HeaderPortafolio />
+			<Intro />
+		</>
+	)
 }
 
 export default App
