@@ -6,6 +6,7 @@ import colombia from "../../imgs/Country/Colombia.png"
 import LinkedInIcon from "@mui/icons-material/LinkedIn"
 import EmailIcon from "@mui/icons-material/Email"
 import GitHubIcon from "@mui/icons-material/GitHub"
+import PanelUno from "../PanelUno/Panel"
 
 const ResponsiveGrid: ChakraProps = {
 	display: "grid",
@@ -30,7 +31,12 @@ export default function Intro() {
 	return (
 		<>
 			<Box marginLeft={"12%"} paddingTop={"5rem"} sx={{...ResponsiveGrid}}>
-				<Box display={"inline-block"} marginTop={"7rem"} marginBottom={"2rem"}>
+				<Box
+					display={"inline-block"}
+					marginTop={"7rem"}
+					marginBottom={"2rem"}
+					width={"fit-content"}
+				>
 					<span
 						className={`${styles.terminal} ${!Anim1 && styles.hw} ${
 							styles.bhw
@@ -60,18 +66,17 @@ export default function Intro() {
 					</Box>
 				</Box>
 				{/* Iconos para redireccionar*/}
-				<Container padding={"3rem"} sx={{overflow: "hidden"}} centerContent>
+				<Container paddingY={"3rem"} width={"fit-content"} marginLeft={"-0.5"}>
 					<img alt="Johan" className={styles.photo} src={profile} />
-					<Container
+					<Box
 						sx={{
-							position: "relative",
-							top: "1rem",
+							marginTop: "1rem",
 							padding: "1rem",
 							display: "flex",
 							flexDirection: "row",
 							justifyContent: "center",
+							width: "fit",
 						}}
-						centerContent
 					>
 						<Tooltip
 							label="My LinkedIn"
@@ -119,9 +124,10 @@ export default function Intro() {
 								<GitHubIcon />
 							</a>
 						</Tooltip>
-					</Container>
+					</Box>
 				</Container>
 			</Box>
+			<PanelUno />
 		</>
 	)
 }
