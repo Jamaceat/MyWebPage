@@ -46,7 +46,7 @@
 /* -------------------------------------Foto-------------------------- */
 
 .photo {
-	width: 50%;
+	width: 25vw;
 	animation: borderChanging 6s infinite ease-in-out alternate;
 	/* box-shadow: inset 0 0 0 #000000; */
 	box-shadow: 1rem 0.24rem 1rem #6b9ac4;
@@ -58,6 +58,33 @@
 	}
 	100% {
 		border-radius: 98% 50% 100% 49% / 100% 50% 81% 22%;
-		translate: -3rem;
+		translate: 0 -3rem;
 	}
+}
+
+/* ------------------------- Colombia's Flag ---------------------- */
+
+.country {
+	position: relative;
+	top: 3rem;
+	width: 2rem;
+	border-radius: 10rem;
+}
+
+/* -------------------Redes sociales------------------------ */
+.RedesSociales:hover {
+	scale: 1.1;
+	background-color: #97d8c4;
+	border-radius: 1rem;
+	padding: 1rem;
+	margin-bottom: 1rem;
+	margin-left: 1rem;
+	margin-right: 1rem;
+	transition: all 0.25s;
+}
+
+.RedesSociales {
+	scale: 1;
+	padding: 0;
+	transition: all 0.25s;
 }

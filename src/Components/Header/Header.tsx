@@ -4,7 +4,7 @@ import {useEffect} from "react"
 
 const style: ChakraProps = {
 	background:
-		"radial-gradient(circle, rgba(0,42,255,0.35591736694677867) 0%, rgba(70,144,252,0.22146358543417366) 100%)",
+		"radial-gradient(circle, rgba(189,218,255,1) 0%, rgba(148,187,233,1) 100%)",
 	borderRadius: "1rem",
 }
 
