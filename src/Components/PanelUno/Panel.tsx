@@ -1,6 +1,7 @@
-import {Box, Button, ChakraProps, Heading} from "@chakra-ui/react"
+import {Box, ChakraProps, Heading} from "@chakra-ui/react"
 import React from "react"
 import ButtonSkill from "./ButtonPanel"
+import SkillInd from "./Skill"
 
 interface EstilosCha {
 	Contenedor: ChakraProps
@@ -24,6 +25,9 @@ const StyleCha: EstilosCha = {
 		boxShadow: "inset .24rem .25rem .5rem black",
 		borderRadius: "md",
 		width: "full",
+		display: "grid",
+		gridTemplateColumns: "repeat(auto-fit,minmax(14rem,1fr))",
+		gap: "1rem",
 	},
 	TitleSk: {
 		padding: "1rem",
@@ -42,7 +46,22 @@ export default function PanelUno() {
 				<Heading sx={{...StyleCha.TitleSk}}>Skills</Heading>
 				<ButtonSkill />
 			</Box>
-			<Box sx={{...StyleCha.SkillsContenedor}}>Hola</Box>
+			<Box sx={{...StyleCha.SkillsContenedor}}>
+				<Box display={"flex"} flexDirection="row" alignItems={"center"}>
+					<SkillInd color={"asdas"} percentage={30} img={"d"} />
+					<Box display={"flex"} flexDir="column">
+						<Heading as={"h3"} size={"md"}>
+							Javascript
+						</Heading>
+						30%
+					</Box>
+				</Box>
+				<SkillInd color={"asdas"} percentage={50} img={"d"} />
+				<SkillInd color={"asdas"} percentage={50} img={"d"} />
+				<SkillInd color={"asdas"} percentage={50} img={"d"} />
+				<SkillInd color={"asdas"} percentage={50} img={"d"} />
+				<SkillInd color={"asdas"} percentage={50} img={"d"} />
+			</Box>
 		</Box>
 	)
 }

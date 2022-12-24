@@ -1,0 +1,17 @@
+@font-face {
+	font-family: "Righteous";
+	src: url("../../fonts/Righteous/Righteous-Regular.ttf");
+}
+
+.circulo_fondo {
+	fill: none;
+
+	stroke: #fff;
+}
+
+.circulo_progreso {
+	fill: none;
+	/* stroke: rgb(5, 185, 125); */
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
