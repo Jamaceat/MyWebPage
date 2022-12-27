@@ -36,6 +36,7 @@ export default function Intro() {
 					marginTop={"7rem"}
 					marginBottom={"2rem"}
 					width={"fit-content"}
+					height={"100vh"}
 				>
 					<span
 						className={`${styles.terminal} ${!Anim1 && styles.hw} ${
