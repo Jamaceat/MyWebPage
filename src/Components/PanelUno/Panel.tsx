@@ -13,8 +13,8 @@ import tw from "../../imgs/IconsSkills/Tailwind.png"
 import mui from "../../imgs/IconsSkills/MaterialUI.png"
 import chui from "../../imgs/IconsSkills/ChakraUI.png"
 import fm from "../../imgs/IconsSkills/FramerMotion.png"
-import {AnimatePresence, MotionConfig, motion, useInView} from "framer-motion"
-import {height, SxProps} from "@mui/system"
+import {AnimatePresence, motion, useInView} from "framer-motion"
+import {SxProps} from "@mui/system"
 
 interface EstilosCha {
 	Contenedor: ChakraProps
@@ -135,6 +135,18 @@ export default function PanelUno() {
 								title={"Framer Motion"}
 							/>
 							<Skill
+								color={"#000000"}
+								percentage={60}
+								img={"https://i.imgur.com/Dzy1acL.png"}
+								title={"NextJS"}
+							/>
+							<Skill
+								color={"#764abc"}
+								percentage={60}
+								img={"https://i.imgur.com/u9soIvQ.png"}
+								title={"Redux"}
+							/>
+							<Skill
 								color={"#ac9b8a"}
 								percentage={100}
 								img={kl}
@@ -155,7 +167,38 @@ export default function PanelUno() {
 						key={"Back"}
 						sx={{...StyleCha.SkillsContenedor}}
 					>
-						<></>
+						<>
+							<Skill
+								color={"#8cc84b"}
+								percentage={70}
+								img={"https://i.imgur.com/NuW6Gr1.png"}
+								title={"NodeJS"}
+							/>
+							<Skill
+								color={"#000000"}
+								percentage={70}
+								img={"https://i.imgur.com/K6PkEZL.png"}
+								title={"ExpressJS"}
+							/>
+							<Skill
+								color={"#007bd0"}
+								percentage={80}
+								img={ts}
+								title={"Typescript"}
+							/>
+							<Skill
+								color={"#812c96"}
+								percentage={15}
+								img={"https://i.imgur.com/2oF2PJI.png"}
+								title={"C#"}
+							/>
+							<Skill
+								color={"#20b586"}
+								percentage={70}
+								img={"https://i.imgur.com/PrR2emr.png"}
+								title={"Rest"}
+							/>
+						</>
 					</Box>
 				)}
 
@@ -169,7 +212,38 @@ export default function PanelUno() {
 						key={"Others"}
 						sx={{...StyleCha.SkillsContenedor}}
 					>
-						<></>
+						<>
+							<Skill
+								color={"#2687cf"}
+								percentage={80}
+								img={"https://i.imgur.com/jTb0fzm.png"}
+								title={"SQL"}
+							/>
+							<Skill
+								color={"#4faa41"}
+								percentage={60}
+								img={"https://i.imgur.com/UDHcu3Z.png"}
+								title={"MongoDB"}
+							/>
+							<Skill
+								color={"#000000"}
+								percentage={100}
+								img={"https://i.imgur.com/4ztcV4v.png"}
+								title={"Notion"}
+							/>
+							<Skill
+								color={"#099cec"}
+								percentage={70}
+								img={"https://i.imgur.com/Yz8xfRA.png"}
+								title={"Docker"}
+							/>
+							<Skill
+								color={"#346e9e"}
+								percentage={80}
+								img={"https://i.imgur.com/SpjocqE.png"}
+								title={"Python"}
+							/>
+						</>
 					</Box>
 				)}
 			</AnimatePresence>

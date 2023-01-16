@@ -33,7 +33,7 @@ export default function ButtonSkill({panel, setPanel, isEnd}: Props) {
 
 						setTimeout(() => {
 							isEnd.current.scrollIntoView()
-						}, 2300)
+						}, 2500)
 					}
 				}}
 				sx={{
@@ -58,7 +58,9 @@ export default function ButtonSkill({panel, setPanel, isEnd}: Props) {
 						setTimeout(() => {
 							setPanel((prev) => 1)
 						}, 1200)
-						isEnd.current.scrollIntoView()
+						setTimeout(() => {
+							isEnd.current.scrollIntoView()
+						}, 2300)
 					}
 				}}
 				sx={{
@@ -83,7 +85,9 @@ export default function ButtonSkill({panel, setPanel, isEnd}: Props) {
 						setTimeout(() => {
 							setPanel((prev) => 2)
 						}, 1200)
-						isEnd.current.scrollIntoView()
+						setTimeout(() => {
+							isEnd.current.scrollIntoView()
+						}, 2300)
 					}
 				}}
 				sx={{
