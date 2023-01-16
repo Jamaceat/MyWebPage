@@ -1,12 +1,11 @@
 import {Box, ChakraProps, Container, Heading, Tooltip} from "@chakra-ui/react"
 import React, {useEffect, useState} from "react"
 import styles from "./intro.module.css"
-import profile from "../../imgs/Myphoto/Johan.jpg"
+import profile from "../../imgs/Myphoto/Johan.png"
 import colombia from "../../imgs/Country/Colombia.png"
 import LinkedInIcon from "@mui/icons-material/LinkedIn"
 import EmailIcon from "@mui/icons-material/Email"
 import GitHubIcon from "@mui/icons-material/GitHub"
-import PanelUno from "../PanelUno/Panel"
 
 const ResponsiveGrid: ChakraProps = {
 	display: "grid",
@@ -35,8 +34,8 @@ export default function Intro() {
 					display={"inline-block"}
 					marginTop={"7rem"}
 					marginBottom={"2rem"}
-					width={"fit-content"}
-					height={"100vh"}
+					width={"auto"}
+					height={"auto"}
 				>
 					<span
 						className={`${styles.terminal} ${!Anim1 && styles.hw} ${
@@ -67,7 +66,14 @@ export default function Intro() {
 					</Box>
 				</Box>
 				{/* Iconos para redireccionar*/}
-				<Container paddingY={"3rem"} width={"fit-content"} marginLeft={"-0.5"}>
+				<Container
+					paddingY={"3rem"}
+					width={"100%"}
+					margin={0}
+					display={"flex"}
+					flexDir={"column"}
+					alignItems={"center"}
+				>
 					<img alt="Johan" className={styles.photo} src={profile} />
 					<Box
 						sx={{
@@ -76,7 +82,7 @@ export default function Intro() {
 							display: "flex",
 							flexDirection: "row",
 							justifyContent: "center",
-							width: "fit",
+							width: "auto",
 						}}
 					>
 						<Tooltip
@@ -128,7 +134,6 @@ export default function Intro() {
 					</Box>
 				</Container>
 			</Box>
-			<PanelUno />
 		</>
 	)
 }

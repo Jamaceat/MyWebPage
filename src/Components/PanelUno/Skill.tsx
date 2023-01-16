@@ -9,6 +9,7 @@ interface Props {
 	color: string
 	img: any
 	title?: string
+	last?: boolean
 }
 
 export default function Skill({percentage, color, img, title}: Props) {

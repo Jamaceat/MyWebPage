@@ -1,5 +1,6 @@
-import {Box, ChakraProps, Heading} from "@chakra-ui/react"
-import React from "react"
+import {Box as Boxx, ChakraProps, Heading} from "@chakra-ui/react"
+import {Box} from "@mui/material"
+import React, {useRef, useState} from "react"
 import ButtonSkill from "./ButtonPanel"
 import Skill from "./Skill"
 import Javascript from "../../imgs/IconsSkills/Javascript.png"
@@ -8,10 +9,16 @@ import rac from "../../imgs/IconsSkills/React.png"
 import c_s_s from "../../imgs/IconsSkills/css.png"
 import h_t_m_l from "../../imgs/IconsSkills/HTML.png"
 import kl from "../../imgs/IconsSkills/Learning.png"
+import tw from "../../imgs/IconsSkills/Tailwind.png"
+import mui from "../../imgs/IconsSkills/MaterialUI.png"
+import chui from "../../imgs/IconsSkills/ChakraUI.png"
+import fm from "../../imgs/IconsSkills/FramerMotion.png"
+import {AnimatePresence, MotionConfig, motion, useInView} from "framer-motion"
+import {height, SxProps} from "@mui/system"
 
 interface EstilosCha {
 	Contenedor: ChakraProps
-	SkillsContenedor: ChakraProps
+	SkillsContenedor: SxProps
 	TitleSk: ChakraProps
 }
 
@@ -34,6 +41,8 @@ const StyleCha: EstilosCha = {
 		display: "grid",
 		gridTemplateColumns: "repeat(auto-fit,minmax(14rem,1fr))",
 		gap: "1rem",
+		overflow: "hidden",
+		textOverflow: "ellipsis",
 	},
 	TitleSk: {
 		padding: "1rem",
@@ -42,39 +51,113 @@ const StyleCha: EstilosCha = {
 		boxShadow: "inset .24rem .25rem .5rem black",
 		borderRadius: "md",
 		width: "fit-content",
+		pointerEvents: "none",
 	},
 }
 
 export default function PanelUno() {
+	const [panel, setPanel] = useState(0)
+	const containerRef = useRef() as React.MutableRefObject<HTMLInputElement>
+	const vista = useInView(containerRef, {once: true})
+
 	return (
-		<Box sx={{...StyleCha.Contenedor}}>
-			<Box display={"flex"} flexDirection={"row"}>
+		<Boxx sx={{...StyleCha.Contenedor}}>
+			<Boxx display={"flex"} flexDirection={"row"}>
 				<Heading sx={{...StyleCha.TitleSk}}>Skills</Heading>
-				<ButtonSkill />
-			</Box>
-			<Box sx={{...StyleCha.SkillsContenedor}}>
-				<Skill
-					color={"#f8e41c"}
-					percentage={95}
-					img={Javascript}
-					title={"Javascript"}
-				/>
-				<Skill
-					color={"#007bd0"}
-					percentage={80}
-					img={ts}
-					title={"Typescript"}
-				/>
-				<Skill color={"#68dcfc"} percentage={90} img={rac} title={"React"} />
-				<Skill color={"#284ce4"} percentage={85} img={c_s_s} title={"CSS"} />
-				<Skill color={"#e84c24"} percentage={95} img={h_t_m_l} title={"HTML"} />
-				<Skill
-					color={"#ac9b8a"}
-					percentage={100}
-					img={kl}
-					title={"Learning  new  technologies"}
-				/>
-			</Box>
-		</Box>
+				<ButtonSkill panel={panel} setPanel={setPanel} />
+			</Boxx>
+			<AnimatePresence>
+				{panel === 0 && (
+					<Box
+						ref={containerRef}
+						component={motion.div}
+						initial={{height: "0"}}
+						animate={vista ? {height: "auto"} : {}}
+						transition={{duration: 1}}
+						exit={{height: 0}}
+						key={"Front"}
+						sx={{...StyleCha.SkillsContenedor}}
+					>
+						<>
+							<Skill
+								color={"#f8e41c"}
+								percentage={95}
+								img={Javascript}
+								title={"Javascript"}
+							/>
+							<Skill
+								color={"#007bd0"}
+								percentage={80}
+								img={ts}
+								title={"Typescript"}
+							/>
+							<Skill
+								color={"#68dcfc"}
+								percentage={90}
+								img={rac}
+								title={"React"}
+							/>
+							<Skill
+								color={"#284ce4"}
+								percentage={85}
+								img={c_s_s}
+								title={"CSS"}
+							/>
+							<Skill
+								color={"#e84c24"}
+								percentage={95}
+								img={h_t_m_l}
+								title={"HTML"}
+							/>
+							<Skill
+								color={"#08accc"}
+								percentage={60}
+								img={tw}
+								title={"Tailwindcss"}
+							/>
+							<Skill
+								color={"#0884fc"}
+								percentage={80}
+								img={mui}
+								title={"MaterialUI"}
+							/>
+							<Skill
+								color={"#08c4bc"}
+								percentage={80}
+								img={chui}
+								title={"ChakraUI"}
+							/>
+							<Skill
+								color={"#ac2ce3"}
+								percentage={60}
+								img={fm}
+								title={"Framer Motion"}
+							/>
+							<Skill
+								color={"#ac9b8a"}
+								percentage={100}
+								img={kl}
+								title={"Learning  new  technologies"}
+							/>
+						</>
+					</Box>
+				)}
+
+				{/* new box */}
+				{panel === 1 && (
+					<Box
+						component={motion.div}
+						initial={{height: "0"}}
+						animate={{height: "auto"}}
+						transition={{duration: 1}}
+						exit={{height: 0}}
+						key={"Back"}
+						sx={{...StyleCha.SkillsContenedor}}
+					>
+						<></>
+					</Box>
+				)}
+			</AnimatePresence>
+		</Boxx>
 	)
 }
