@@ -9,15 +9,21 @@ interface Props {
 	color: string
 	img: any
 	title?: string
-	last?: boolean
 }
 
 export default function Skill({percentage, color, img, title}: Props) {
+	const isLast = useRef() as React.MutableRefObject<HTMLDivElement>
+
 	return (
-		<Box display={"flex"} flexDirection="row" alignItems={"center"}>
+		<Box
+			ref={isLast}
+			display={"flex"}
+			flexDirection="row"
+			alignItems={"center"}
+		>
 			<SkillInd color={color} percentage={percentage} img={img} />
 			<Box display={"flex"} flexDir="column">
-				<Heading as={"h3"} size={"md"}>
+				<Heading as={"h3"} size={"sm"}>
 					{title}
 				</Heading>
 				<Heading as={"h5"} size={"sm"} fontWeight={0}>

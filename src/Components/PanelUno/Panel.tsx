@@ -36,7 +36,7 @@ const StyleCha: EstilosCha = {
 		margin: ".25rem",
 		backgroundColor: "#DDDDDD",
 		boxShadow: "inset .24rem .25rem .5rem black",
-		borderRadius: "md",
+		borderRadius: "1rem",
 		width: "full",
 		display: "grid",
 		gridTemplateColumns: "repeat(auto-fit,minmax(14rem,1fr))",
@@ -59,22 +59,23 @@ export default function PanelUno() {
 	const [panel, setPanel] = useState(0)
 	const containerRef = useRef() as React.MutableRefObject<HTMLInputElement>
 	const vista = useInView(containerRef, {once: true})
+	const isEnd = useRef() as React.MutableRefObject<HTMLDivElement>
 
 	return (
-		<Boxx sx={{...StyleCha.Contenedor}}>
+		<Boxx sx={{...StyleCha.Contenedor}} ref={isEnd}>
 			<Boxx display={"flex"} flexDirection={"row"}>
 				<Heading sx={{...StyleCha.TitleSk}}>Skills</Heading>
-				<ButtonSkill panel={panel} setPanel={setPanel} />
+				<ButtonSkill panel={panel} setPanel={setPanel} isEnd={isEnd} />
 			</Boxx>
 			<AnimatePresence>
 				{panel === 0 && (
 					<Box
 						ref={containerRef}
 						component={motion.div}
-						initial={{height: "0"}}
-						animate={vista ? {height: "auto"} : {}}
+						initial={{height: "0", opacity: 0}}
+						animate={vista ? {height: "auto", opacity: 1} : {}}
 						transition={{duration: 1}}
-						exit={{height: 0}}
+						exit={{height: 0, opacity: 0}}
 						key={"Front"}
 						sx={{...StyleCha.SkillsContenedor}}
 					>
@@ -147,17 +148,32 @@ export default function PanelUno() {
 				{panel === 1 && (
 					<Box
 						component={motion.div}
-						initial={{height: "0"}}
-						animate={{height: "auto"}}
+						initial={{height: "0", opacity: 0}}
+						animate={{height: "auto", opacity: 1}}
 						transition={{duration: 1}}
-						exit={{height: 0}}
+						exit={{height: 0, opacity: 0}}
 						key={"Back"}
 						sx={{...StyleCha.SkillsContenedor}}
 					>
 						<></>
 					</Box>
 				)}
+
+				{panel === 2 && (
+					<Box
+						component={motion.div}
+						initial={{height: "0", opacity: 0}}
+						animate={{height: "auto", opacity: 1}}
+						transition={{duration: 1}}
+						exit={{height: 0, opacity: 0}}
+						key={"Others"}
+						sx={{...StyleCha.SkillsContenedor}}
+					>
+						<></>
+					</Box>
+				)}
 			</AnimatePresence>
+			{/* <Box ref={isEnd}></Box> */}
 		</Boxx>
 	)
 }
